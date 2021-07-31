@@ -1,0 +1,17 @@
+{% extends 'todo/base.html' %} {% block content %}
+
+<h1>Create</h1>
+
+<h2>{{ error }}</h2>
+
+<form method="POST">
+  <!--防止CSRF攻击-->
+  {% csrf_token %} 　
+
+  <!--这是一个模板变量，Django自动创建显示表单需要的全部字段，装饰符as_p让Django以字段格式渲染所有的表单元素-->　　　　　　　　　
+  {{ form.as_p }}
+
+  <button type="submit">Create</button>
+</form>
+
+{% endblock %}
